@@ -68,6 +68,9 @@ iscc $(SolutionDir)\installer.iss</PostBuildEvent>
     <Compile Include="about\AboutBoxViewModel.cs" />
     <Compile Include="composer\Composer.cs" />
     <Compile Include="composer\KeyboardHook.cs" />
+    <Compile Include="composer\DebugWindow.xaml.cs">
+      <DependentUpon>DebugWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="composer\Program.cs" />
     <Compile Include="settings\SettingsWindowViewModel.cs" />
     <Compile Include="ui_common\DelegateCommand.cs" />
@@ -773,6 +776,10 @@ iscc $(SolutionDir)\installer.iss</PostBuildEvent>
   </ItemGroup>
   <ItemGroup>
     <Page Include="about\AboutBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="composer\DebugWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

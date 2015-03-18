@@ -23,6 +23,7 @@ namespace WinCompose
         private static WinForms.NotifyIcon m_notifyicon;
         private static SequenceWindow m_sequencewindow;
         private static SettingsWindow m_optionswindow;
+        private static DebugWindow m_debug_window;
 
         [STAThread]
         static void Main()
@@ -54,6 +55,9 @@ namespace WinCompose
                         new WinForms.MenuItem(i18n.Text.ShowOptions, ShowOptionsClicked),
                         new WinForms.MenuItem(i18n.Text.Disable, DisableClicked),
                         new WinForms.MenuItem(i18n.Text.About, AboutClicked),
+#if DEBUG
+                        new WinForms.MenuItem("Debug Logs…", DebugClicked),
+#endif
                         new WinForms.MenuItem("-"),
                         new WinForms.MenuItem(i18n.Text.Restart, RestartClicked),
                         new WinForms.MenuItem(i18n.Text.Exit, ExitClicked),
@@ -137,6 +141,13 @@ namespace WinCompose
         {
             var about_box = new AboutBox();
             about_box.ShowDialog();
+        }
+
+        private static void DebugClicked(object sender, EventArgs e)
+        {
+            if (m_debug_window == null)
+                m_debug_window = new DebugWindow();
+            m_debug_window.Show();
         }
 
         private static void RestartClicked(object sender, EventArgs e)

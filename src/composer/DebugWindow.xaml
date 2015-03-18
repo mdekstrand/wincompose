@@ -1,0 +1,36 @@
+﻿<Window x:Class="WinCompose.DebugWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i18n="clr-namespace:WinCompose.i18n"
+        xmlns:wincompose="clr-namespace:WinCompose"
+        Title="Debug"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="/WinCompose;component/res/key_compose.png"
+        Closing="CloseWindowClicked"
+        Height="350"
+        Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <StackPanel Orientation="Vertical">
+                <Label HorizontalAlignment="Center" FontSize="12" Content="Status"/>
+            </StackPanel>
+            <StackPanel Margin="0, 10, 0, 10"  VerticalAlignment="Bottom">
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <Label HorizontalAlignment="Left" FontSize="12" Content="Status"/>
+                <TextBox Name="Log" Width="Auto" Height="Auto" TextWrapping="Wrap" Text="Hello world" VerticalAlignment="Top">
+                </TextBox>
+            </StackPanel>
+            <StackPanel Margin="0, 10, 0, 10"  VerticalAlignment="Bottom">
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
