@@ -69,17 +69,6 @@ begin
        or (getarraylength(framework_names) = 0) then begin
         { No such path in registry, or no frameworks found }
         result := -1;
-    end else if regquerystringvalue(HKLM, path + '\v3.5', 'Version', version) then begin
-        { .NET 3.5 found, but fail if we only find Service Pack 1 }
-        if pos('3.5.21022.08', version) = 1 then
-            result := -1;
-    end else begin
-        { Some other .NET versions found, but check for v4 }
-        if not(regquerystringvalue(HKLM, path + '\v4', 'Version', version))
-           and not(regquerystringvalue(HKLM, path + '\v4.0', 'Version', version))
-           and not(regquerystringvalue(HKLM, path + '\v4.5', 'Version', version))
-           and not(regquerystringvalue(HKLM, path + '\v4.6', 'Version', version)) then
-            result := -1;
     end;
 end;
 
